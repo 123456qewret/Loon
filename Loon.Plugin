@@ -1,0 +1,23 @@
+#!name=My Plugin
+#!desc=自用插件收集
+#!author=123456qewret
+#!homepage=https://github.com/123456qewret/Loon
+
+[URL Rewrite]
+# 京东辅助注销会员
+^https:\/\/shopmember\.m\.jd\.com\/shopcard\/\?(venderId=[0-9]+).* https:\/\/shopmember\.m\.jd\.com\/member\/memberCloseAccount\?$1 302
+#Abema强制1080
+abematv\.akamaized\.net/.+/\d+/playlist\.m3u8 header-replace /\d+/playlist.m3u8 header /1080/playlist.m3u8
+#哔哩哔哩Upos服务器替换为腾讯Cos对象存储@ddgksf2013
+^https?:\/\/upos-hz-mirrorakam\.akamaized\.net\/(.*) https://upos-sz-mirrorcos.bilivideo.com/$1 302
+
+
+[Script]
+#12306去广告
+http-response ^https?:\/\/ad\.12306\.cn\/ad\/ser\/getAdList script-path=https://github.com/ddgksf2013/Scripts/raw/master/12306.js, requires-body=1, tag=12306去广告
+#BiliBili_繁体CC字幕转中文简体@ddgksf2013
+http-response ^https?:\/\/i.\.hdslb\.com\/bfs\/subtitle\/.+\.json$ script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_cc.js, requires-body=1, tag=B站字幕简体化
+
+
+[MITM]
+hostname = api.m.jd.com, *abematv.akamaized.ne, ad.12306.cn, i0.hdslb.com
