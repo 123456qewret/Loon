@@ -18,6 +18,9 @@ http-response ^https?:\/\/ad\.12306\.cn\/ad\/ser\/getAdList script-path=https://
 http-response ^https?:\/\/i.\.hdslb\.com\/bfs\/subtitle\/.+\.json$ script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_cc.js, requires-body=1, tag=B站字幕简体化
 #B站启动直连
 http-response ^https?:\/\/app\.bilibili\.com\/x\/resource\/domain script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_startup_direct.js, requires-body=1, tag=B站启动直连
+#WPS会员
+http-response ^https:\/\/(vas|account)\.wps\.cn\/(query\/api\/v\d\/list_purchase_info|api\/users\/\d+\/overview) script-path=https://raw.githubusercontent.com/510004015/Quantumult_X/Remote/Premium/WPSOffice.js, requires-body=1, tag=WPS会员
+
 
 [MITM]
-hostname = *abematv.akamaized.net, ad.12306.cn, i0.hdslb.com, api.bilibili.com
+hostname = *abematv.akamaized.net, ad.12306.cn, i0.hdslb.com, api.bilibili.com, vas.wps.cn, account.wps.cn
