@@ -5,22 +5,42 @@
 #!icon=https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Icon/80px/GitHub.png
 
 [URL Rewrite]
-#Abema强制1080
+# Abema强制1080
 abematv\.akamaized\.net/.+/\d+/playlist\.m3u8 header-replace /\d+/playlist.m3u8 header /1080/playlist.m3u8
-#哔哩哔哩Upos服务器替换为腾讯Cos对象存储@ddgksf2013
+# 哔哩哔哩Upos服务器替换为腾讯Cos对象存储@ddgksf2013
 ^https?:\/\/upos-hz-mirrorakam\.akamaized\.net\/(.*) https://upos-sz-mirrorcos.bilivideo.com/$1 302
-
+# 京东注销会员
+^https:\/\/shopmember\.m\.jd\.com\/shopcard\/\?(venderId=[0-9]+).* https:\/\/shopmember\.m\.jd\.com\/member\/memberCloseAccount\?$1 302
+# 彩云去广告
+^https:\/\/ad\.caiyunapp\.com\/ reject
+# 百度网盘去广告
+^https?:\/\/pan\.baidu\.com\/(act\/(api\/activityentry|v2\/(bchannel|welfare)\/list)|rest\/2\.0\/pcs\/ad) reject
 
 [Script]
-#12306去广告
+# 12306去广告
 http-response ^https?:\/\/ad\.12306\.cn\/ad\/ser\/getAdList script-path=https://github.com/ddgksf2013/Scripts/raw/master/12306.js, requires-body=1, tag=12306去广告
-#BiliBili_繁体CC字幕转中文简体@ddgksf2013
+# BiliBili_繁体CC字幕转中文简体@ddgksf2013
 http-response ^https?:\/\/i.\.hdslb\.com\/bfs\/subtitle\/.+\.json$ script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_cc.js, requires-body=1, tag=B站字幕简体化
-#B站启动直连
+# B站启动直连ddgksf2013
 http-response ^https?:\/\/app\.bilibili\.com\/x\/resource\/domain script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_startup_direct.js, requires-body=1, tag=B站启动直连
-#WPS会员
+# B站自动换区
+http-response ^https:\/\/ap(p|i)\.bili(bili|api)\.(com|net)\/(pgc\/view\/v\d\/app\/season|x\/offline\/version)\? script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_switch.js, requires-body=1, tag=B站自动换区
+# WPS会员ddgksf2013
 http-response ^https:\/\/(vas|account)\.wps\.cn\/(query\/api\/v\d\/list_purchase_info|api\/users\/\d+\/overview) script-path=https://raw.githubusercontent.com/510004015/Quantumult_X/Remote/Premium/WPSOffice.js, requires-body=1, tag=WPS会员
+# WPS稻壳会员@yqc007
+http-response ^https?:\/\/account\.wps\.cn\/api\/v3\/mine\/vips requires-body=1,script-path=https://raw.githubusercontent.com/yqc007/QuantumultX/master/WPSDocerVIPuserCrack.js,tag=WPS稻壳会员1
+http-request ^https?:\/\/.+\.(docer.)?wps.cn\/(user\/v1\/vip|android\/mb\/buy|download\/v1\/ios|partner\/invoke\/usable|(api|rank)\/v1(\/mobile\/mb)?\/detail) requires-body=0,script-path=https://raw.githubusercontent.com/yqc007/QuantumultX/master/WPSDocerVIPowerCrack.js, tag=WPS稻壳会员2
+# 扫描全能王@Nobyda
+http-response https:\/\/(api|api-cs)\.intsig\.net\/purchase\/cs\/query_property\? requires-body=1, script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/CamScanner.js, tag=扫描全能王VIP
+# 百度文库ddgksf2013
+http-response ^https:\/\/appwk\.baidu\.com\/naapi\/user\/getinfo requires-body=1,script-path=https://github.com/deezertidal/private/raw/master/js-backup/Crack/baidulibrary.js, tag=百度文库VIP
+# EMBY
+http-response ^https?:\/\/mb3admin.com\/admin\/service\/registration\/validateDevice requires-body=1,max-size=0, script-path=https://raw.githubusercontent.com/Tartarus2014/Script/master/Emby.js, tag=EMBY
+# 彩云天气
+http-response ^http[s]?:\/\/biz\.(caiyunapp|cyapi)\.(com|cn)\/v2\/user.*$ requires-body=1,script-path=https://raw.githubusercontent.com/WeiRen0/Scripts/main/cytq.js, tag=彩云天气VIP
+# 百度网盘
+http-response https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/membership\/user requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/BaiduCloud.js, tag=百度网盘VIP
 
 
 [MITM]
-hostname = *abematv.akamaized.net, ad.12306.cn, i0.hdslb.com, api.bilibili.com, vas.wps.cn, account.wps.cn
+hostname = *abematv.akamaized.net, shopmember.m.jd.com, pan.baidu.com, ad.12306.cn, i0.hdslb.com, api.bilibili.com, vas.wps.cn, account.wps.cn, *.docer.wps.cn, vipapi.wps.cn, ap*.intsig.net, appwk.baidu.com, mb3admin.com, *.caiyunapp.*,*cyapi*
