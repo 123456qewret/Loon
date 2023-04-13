@@ -5,7 +5,7 @@
 #!icon=https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Icon/80px/Amap.png
 
 [Rule]
-host, amdc.m.taobao.com, reject
+host, amdc.m.taobao.com, REJECT
 
 [URL Rewrite]
 # > 高德地图_路线规划下方广告@ddgksf2013
