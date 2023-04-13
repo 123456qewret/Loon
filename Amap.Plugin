@@ -1,8 +1,11 @@
 #!name=高德地图净化
-#!desc=转换墨鱼qx复写
+#!desc=转换QX复写为Loon Plugin
 #!author=ddgksf2013
-#!homepage=https://github.com/ddgksf2013/Scripts/blob/master/amap.js
+#!homepage=https://github.com/ddgksf2013/Rewrite/blob/master/AdBlock/Amap.conf
 #!icon=https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Icon/80px/Amap.png
+
+[Rule]
+host, amdc.m.taobao.com, reject
 
 [URL Rewrite]
 # > 高德地图_路线规划下方广告@ddgksf2013
@@ -30,7 +33,7 @@ http-response ^https?:\/\/.*\.amap\.com\/ws\/promotion-web\/resource script-path
 # > 高德地图_首页底部处理@ddgksf2013
 http-response ^https?:\/\/.*\.amap\.com\/ws\/faas\/amap-navigation\/main-page script-path=https://github.com/ddgksf2013/Scripts/raw/master/amap.js, requires-body=1, tag=高德地图_首页底部处理
 # > 高德地图_开屏广告@ddgksf2013
-http-response ^https?:\/\/.*\.amap\.com\/ws\/valueadded\/alimama\/splash_screen script-path=https://github.com/ddgksf2013/Scripts/raw/master/amap.js, requires-body=1, tag=
+http-response ^https?:\/\/.*\.amap\.com\/ws\/valueadded\/alimama\/splash_screen script-path=https://github.com/ddgksf2013/Scripts/raw/master/amap.js, requires-body=1, tag=高德地图_开屏广告
 # > 高德地图_首页顶部推广@ddgksf2013
 http-response ^https?:\/\/.*\.amap\.com\/ws\/msgbox\/pull script-path=https://github.com/ddgksf2013/Scripts/raw/master/amap.js, requires-body=1, tag=高德地图_首页顶部推广
 # > 高德地图_我的页面@ddgksf2013
