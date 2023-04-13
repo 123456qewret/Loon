@@ -21,10 +21,6 @@ abematv\.akamaized\.net/.+/\d+/playlist\.m3u8 header-replace /\d+/playlist.m3u8 
 http-response ^https?:\/\/ad\.12306\.cn\/ad\/ser\/getAdList script-path=https://github.com/ddgksf2013/Scripts/raw/master/12306.js, requires-body=1, tag=12306去广告
 # BiliBili_繁体CC字幕转中文简体@ddgksf2013
 http-response ^https?:\/\/i.\.hdslb\.com\/bfs\/subtitle\/.+\.json$ script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_cc.js, requires-body=1, tag=B站字幕简体化
-# B站启动直连ddgksf2013
-http-response ^https?:\/\/app\.bilibili\.com\/x\/resource\/domain script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_startup_direct.js, requires-body=1, tag=B站启动直连
-# B站自动换区
-http-response ^https:\/\/ap(p|i)\.bili(bili|api)\.(com|net)\/(pgc\/view\/v\d\/app\/season|x\/offline\/version)\? script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_switch.js, requires-body=1, tag=B站自动换区
 # WPS会员ddgksf2013
 http-response ^https:\/\/(vas|account)\.wps\.cn\/(query\/api\/v\d\/list_purchase_info|api\/users\/\d+\/overview) script-path=https://raw.githubusercontent.com/510004015/Quantumult_X/Remote/Premium/WPSOffice.js, requires-body=1, tag=WPS会员
 # WPS稻壳会员@yqc007
