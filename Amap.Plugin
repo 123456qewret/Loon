@@ -1,11 +1,11 @@
 #!name=高德地图净化
-#!desc=转换QX复写为Loon Plugin
+#!desc=高德地图软件无用功能的净化
 #!author=ddgksf2013
 #!homepage=https://github.com/ddgksf2013/Rewrite/blob/master/AdBlock/Amap.conf
 #!icon=https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Icon/80px/Amap.png
 
 [Rule]
-host, amdc.m.taobao.com, REJECT
+DOMAIN, amdc.m.taobao.com, REJECT
 
 [URL Rewrite]
 # > 高德地图_路线规划下方广告@ddgksf2013
