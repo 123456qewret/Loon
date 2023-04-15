@@ -20,7 +20,7 @@ abematv\.akamaized\.net/.+/\d+/playlist\.m3u8 header-replace /\d+/playlist.m3u8 
 # 12306去广告
 http-response ^https?:\/\/ad\.12306\.cn\/ad\/ser\/getAdList script-path=https://github.com/ddgksf2013/Scripts/raw/master/12306.js, requires-body=1, tag=12306去广告
 # BiliBili_繁体CC字幕转中文简体@ddgksf2013
-http-response ^https?:\/\/i.\.hdslb\.com\/bfs\/subtitle\/.+\.json$ script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_cc.js, requires-body=1, tag=B站字幕简体化
+http-response ^https?:\/\/.*\.hdslb\.com\/bfs\/subtitle\/.+\.json script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_cc.js, requires-body=1, tag=B站字幕简体化
 # WPS会员ddgksf2013
 http-response ^https:\/\/(vas|account)\.wps\.cn\/(query\/api\/v\d\/list_purchase_info|api\/users\/\d+\/overview) script-path=https://raw.githubusercontent.com/510004015/Quantumult_X/Remote/Premium/WPSOffice.js, requires-body=1, tag=WPS会员
 # WPS稻壳会员@yqc007
@@ -39,4 +39,4 @@ http-response https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/membership\/user requires
 
 
 [MITM]
-hostname = *abematv.akamaized.net, shopmember.m.jd.com, pan.baidu.com, ad.12306.cn, i0.hdslb.com, api.bilibili.com, vas.wps.cn, account.wps.cn, *.docer.wps.cn, vipapi.wps.cn, ap*.intsig.net, appwk.baidu.com, mb3admin.com, *.caiyunapp.*,*cyapi*
+hostname = *abematv.akamaized.net, shopmember.m.jd.com, pan.baidu.com, ad.12306.cn, aisubtitle.hdslb.com, i0.hdslb.com, upos-hz-mirrorakam.akamaized.net, vas.wps.cn, account.wps.cn, *.docer.wps.cn, vipapi.wps.cn, ap*.intsig.net, appwk.baidu.com, mb3admin.com, *.caiyunapp.*,*cyapi*
