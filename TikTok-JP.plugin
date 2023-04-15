@@ -1,4 +1,3 @@
-
 #!name=TikTok JP
 #!desc=解锁 TikTok 日本 地区
 #!openUrl=https://github.com/Semporia/TikTok-Unlock
@@ -27,6 +26,8 @@ USER-AGENT,tiktok*,PROXY
 (?<=tz_name=)Asia/Shanghai(?=&) Asia/Tokyo 307 
 (?<=timezone=)8(?=&) 9 307 
 
+[Script]
+http-response https?:\/\/.*\.tiktokv\.com\/aweme\/v\d\/(feed|mix\/aweme|aweme\/post|(multi\/)?aweme\/detail|follow\/feed|nearby\/feed|search\/item|general\/search\/single|hot\/search\/video\/list|aweme\/favorite) script-path=https://raw.githubusercontent.com/Tartarus2014/Script/master/Tiktok.js, requires-body=true, tag=TKikTok下载去水印
 
 [MITM]
 hostname = *.tiktokv.com,*.byteoversea.com,*.tik-tokapi.com
