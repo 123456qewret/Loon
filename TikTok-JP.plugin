@@ -3,7 +3,7 @@
 #!openUrl=https://github.com/Semporia/TikTok-Unlock
 #!author=Semporia
 #!homepage=https://github.com/Semporia/TikTok-Unlock
-#!icon= https://raw.githubusercontent.com/Semporia/Hand-Painted-icon/master/Social_Media/TikTok.png
+#!icon= https://raw.githubusercontent.com/Tartarus2014/For-own-use/master/Color/TikTok.png
 
 [Rule]
 DOMAIN-SUFFIX,byteoversea.com,PROXY
@@ -27,7 +27,7 @@ USER-AGENT,tiktok*,PROXY
 (?<=timezone=)8(?=&) 9 307 
 
 [Script]
-http-response https?:\/\/.*\.tiktokv\.com\/aweme\/v\d\/(feed|mix\/aweme|aweme\/post|(multi\/)?aweme\/detail|follow\/feed|nearby\/feed|search\/item|general\/search\/single|hot\/search\/video\/list|aweme\/favorite) script-path=https://raw.githubusercontent.com/Tartarus2014/Script/master/Tiktok.js, requires-body=true, tag=TKikTok下载去水印
+http-response https?:\/\/.*\.tiktokv\.com\/aweme\/v\d\/(feed|mix\/aweme|aweme\/post|(multi\/)?aweme\/detail|follow\/feed|nearby\/feed|search\/item|general\/search\/single|hot\/search\/video\/list|aweme\/favorite) script-path=https://raw.githubusercontent.com/Tartarus2014/Script/master/Tiktok.js, requires-body=true, tag=TikTok下载去水印
 
 [MITM]
 hostname = *.tiktokv.com,*.byteoversea.com,*.tik-tokapi.com
