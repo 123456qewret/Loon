@@ -1,0 +1,30 @@
+我需要你帮我处理一段配置，注意我引号内的空格。
+
+条件1：#号开头的注释无需处理，直接输出
+
+条件2：如果句中有“url script-response-body ”则将其替换为“script-path=”在居首添加“http-response ”，在句尾添加“, requires-body=true, timeout=10, tag=”。
+原句为：
+# > 微博国际版_热搜处理@ddgksf2013
+^https?:\/\/weibointl\.api\.weibo\.cn\/portal\.php\?a=search_topic url script-response-body aaa.js
+修改为：
+# > 微博国际版_热搜处理@ddgksf2013
+http-response ^https?:\/\/weibointl\.api\.weibo\.cn\/portal\.php\?a=search_topic script-path=aaa.js, requires-body=true, timeout=10, tag=微博国际版_热搜处理@ddgksf2013
+
+条件3：如果遇到" url echo-response text/html echo-response "，则将居首替换为" http-request "，把"url echo-response text/html echo-response"替换为" script-path= "，在句末添加", requires-body=0, timeout=10, tag="。
+例句：
+原句为：
+# > 微博国际版_屏蔽searching_info@shiro
+^https?:\/\/weibointl\.api\.weibo\.c(n|om)\/portal\.php.*user&a=get_searching_info url echo-response text/html echo-response https://github.com/ddgksf2013/Scripts/raw/master/weibo_search_info.json
+修改为：
+# > 微博国际版_屏蔽searching_info@shiro
+http-request ^https?:\/\/weibointl\.api\.weibo\.c(n|om)\/portal\.php.*user&a=get_searching_info script-path=https://github.com/ddgksf2013/Scripts/raw/master/weibo_search_info.json, requires-body=0, timeout=10, tag=微博国际版_屏蔽searching_info
+
+条件4：如果遇到"url reject"后没有脚本链接的语句，则去掉"url "，以下为例句。
+原句为：^https?:\/\/boot.*weibo\.com\/v\d\/ad\/realtime url reject-200
+修改为：^https?:\/\/boot.*weibo\.com\/v\d\/ad\/realtime reject-200
+
+条件5：将所有没有脚本链接的语句优先排序输出，其余顺序不变。
+
+条件6：输出时请使用代码框，便于复制。
+
+明白了吗？
