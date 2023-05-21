@@ -8,7 +8,7 @@
 DOMAIN, o33249.ingest.sentry.io, REJECT
 
 [Script]
-http-response https://ios.chat.openai.com/backend-api/accounts/check/* script-path=https://raw.githubusercontent.com/Marol62926/Quantumultx/main/ai4/ai4.js, requires-body=1, tag=GPT4.0
+http-response https://ios.chat.openai.com/backend-api/accounts/check/* script-path=https://github.com/123456qewret/Loon/raw/main/ChatGPT/GPT4.js, requires-body=1, tag=GPT4.0
 
 [MITM]
 hostname = ios.chat.openai.com
