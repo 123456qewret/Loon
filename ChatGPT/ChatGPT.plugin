@@ -2,7 +2,7 @@
 #!desc=OpenAI ChatGPT4.0
 #!author=Marol62926
 #!homepage=https://github.com/Marol62926/Quantumultx/blob/main/ai4/ai4.conf
-#!icon=https://raw.githubusercontent.com/123456qewret/Loon/main/chatgpt-icon.png
+#!icon=https://raw.githubusercontent.com/123456qewret/Loon/main/ChatGPT/chatgpt-icon.png
 
 [Rule]
 DOMAIN, o33249.ingest.sentry.io, REJECT
