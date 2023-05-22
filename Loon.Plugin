@@ -6,7 +6,7 @@
 
 [URL Rewrite]
 # Abema强制1080
-abematv\.akamaized\.net/.+/\d+/playlist\.m3u8 header-replace /\d+/playlist.m3u8 header /1080/playlist.m3u8
+(linear\-abematv\.akamaized\.net/.*)/\d\d\d/(.*) header $1/1080/$2
 # 哔哩哔哩Upos服务器替换为腾讯Cos对象存储@ddgksf2013
 ^https?:\/\/upos-hz-mirrorakam\.akamaized\.net\/(.*) https://upos-sz-mirrorcos.bilivideo.com/$1 302
 # 京东注销会员
@@ -39,4 +39,4 @@ http-response https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/membership\/user requires
 
 
 [MITM]
-hostname = *abematv.akamaized.net, shopmember.m.jd.com, pan.baidu.com, ad.12306.cn, aisubtitle.hdslb.com, i0.hdslb.com, upos-hz-mirrorakam.akamaized.net, vas.wps.cn, account.wps.cn, *.docer.wps.cn, vipapi.wps.cn, ap*.intsig.net, appwk.baidu.com, mb3admin.com, *.caiyunapp.*,*cyapi*
+hostname = linear-abematv.akamaized.net, upos-hz-mirrorakam.akamaized.net, shopmember.m.jd.com, pan.baidu.com, ad.12306.cn, aisubtitle.hdslb.com, i0.hdslb.com, vas.wps.cn, account.wps.cn, *.docer.wps.cn, vipapi.wps.cn, ap*.intsig.net, appwk.baidu.com, mb3admin.com, *.caiyunapp.*,*cyapi*
