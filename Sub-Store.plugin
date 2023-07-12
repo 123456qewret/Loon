@@ -3,7 +3,7 @@
 #!openUrl = https://sub.store
 #!author = Peng-YM
 #!homepage = https://github.com/Peng-YM/Sub-Store
-#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/master/Other_icon/80px/Sub-Store.png
+#!icon = https://gitlab.com/lodepuly/iconlibrary/-/raw/master/Other_icon/120px/Sub-Store.png
 
 [Rule]
 DOMAIN, sub-store.vercel.app, PROXY
