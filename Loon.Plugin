@@ -13,8 +13,12 @@
 ^https:\/\/shopmember\.m\.jd\.com\/shopcard\/\?(venderId=[0-9]+).* https:\/\/shopmember\.m\.jd\.com\/member\/memberCloseAccount\?$1 302
 # 彩云去广告
 ^https:\/\/ad\.caiyunapp\.com\/ reject
-# 百度网盘去广告
-^https?:\/\/pan\.baidu\.com\/(act\/(api\/activityentry|v2\/(bchannel|welfare)\/list)|rest\/2\.0\/pcs\/ad) reject
+# > 百度网盘_设置信息流@ddgksf2013
+^https?:\/\/pan\.baidu\.com\/act\/v\d\/(bchannel|welfare)\/list reject-200
+# > 百度网盘_通用广告@ddgksf2013
+^https?:\/\/pan\.baidu\.com\/rest\/.*\/pcs\/ad reject-200
+# > 百度网盘_活动推广@ddgksf2013
+^https?:\/\/pan\.baidu\.com\/act\/api\/activityentry reject-200
 
 [Script]
 # 12306去广告
@@ -34,9 +38,10 @@ http-response ^https:\/\/appwk\.baidu\.com\/naapi\/user\/getinfo requires-body=1
 http-response ^https?:\/\/mb3admin.com\/admin\/service\/registration\/validateDevice requires-body=1,max-size=0, script-path=https://raw.githubusercontent.com/Tartarus2014/Script/master/Emby.js, tag=EMBY VIP
 # 彩云天气
 http-response ^http[s]?:\/\/biz\.(caiyunapp|cyapi)\.(com|cn)\/v2\/user.*$ requires-body=1,script-path=https://raw.githubusercontent.com/WeiRen0/Scripts/main/cytq.js, tag=彩云天气VIP
-# 百度网盘
-http-response https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/membership\/user requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/Surge/JS/BaiduCloud.js, tag=百度网盘VIP
-
+# > 百度网盘_开屏广告@ddgksf2013
+http-response ^https?:\/\/pan\.baidu\.com\/api\/getsyscfg requires-body=1,script-path=https://gist.githubusercontent.com/ddgksf2013/f43026707830c7818ee3ba624e383c8d/raw/baiduCloud.vip.js, tag=百度网盘去开屏广告
+# > 百度网盘_会员权益@ddgksf2013
+http-response ^https:\/\/pan\.baidu\.com\/rest\/.*\/membership\/user\?app_id requires-body=1,script-path=https://gist.githubusercontent.com/ddgksf2013/f43026707830c7818ee3ba624e383c8d/raw/baiduCloud.vip.js, tag=百度网盘会员
 
 [MITM]
 hostname = linear-abematv.akamaized.net, upos-hz-mirrorakam.akamaized.net, shopmember.m.jd.com, pan.baidu.com, ad.12306.cn, aisubtitle.hdslb.com, i0.hdslb.com, vas.wps.cn, account.wps.cn, *.docer.wps.cn, vipapi.wps.cn, ap*.intsig.net, appwk.baidu.com, mb3admin.com, *.caiyunapp.*,*cyapi*
