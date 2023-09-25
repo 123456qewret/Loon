@@ -19,8 +19,6 @@
 [Script]
 # 12306去广告
 http-request ^https?:\/\/ad\.12306\.cn\/ad\/ser\/getAdList script-path=https://github.com/ddgksf2013/Scripts/raw/master/12306.js, requires-body=1, tag=12306去广告
-# 禁漫天堂去广告
-http-response ^https?:\/\/18comic\.(vip|org)\/(?!(.*(onclick|cdn-cgi|\.))).* script-path=https://limbopro.com/Adguard/Adblock4limbo.js, requires-body=true, timeout=10, tag=禁漫天堂去广告
 # BiliBili_繁体CC字幕转中文简体@ddgksf2013
 http-response ^https?:\/\/.*\.hdslb\.com\/bfs\/subtitle\/.+\.json script-path=https://github.com/ddgksf2013/Scripts/raw/master/bilibili_cc.js, requires-body=1, tag=B站字幕简体化
 # WPS会员ddgksf2013
@@ -41,4 +39,4 @@ http-response https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/membership\/user requires
 
 
 [MITM]
-hostname = linear-abematv.akamaized.net, upos-hz-mirrorakam.akamaized.net, shopmember.m.jd.com, pan.baidu.com, ad.12306.cn, 18comic.org, 18comic.vip, aisubtitle.hdslb.com, i0.hdslb.com, vas.wps.cn, account.wps.cn, *.docer.wps.cn, vipapi.wps.cn, ap*.intsig.net, appwk.baidu.com, mb3admin.com, *.caiyunapp.*,*cyapi*
+hostname = linear-abematv.akamaized.net, upos-hz-mirrorakam.akamaized.net, shopmember.m.jd.com, pan.baidu.com, ad.12306.cn, aisubtitle.hdslb.com, i0.hdslb.com, vas.wps.cn, account.wps.cn, *.docer.wps.cn, vipapi.wps.cn, ap*.intsig.net, appwk.baidu.com, mb3admin.com, *.caiyunapp.*,*cyapi*
