@@ -15,6 +15,13 @@
 ^https:\/\/ad\.caiyunapp\.com\/ reject
 # 百度网盘去广告
 ^https?:\/\/pan\.baidu\.com\/(act\/(api\/activityentry|v2\/(bchannel|welfare)\/list)|rest\/2\.0\/pcs\/ad) reject
+# 顺丰速运+ @可莉🅥 
+^https:\/\/mcs-mimp-web\.sf-express\.com\/mcs-mimp\/integralPlanet\/getCxAdvertiseList reject-dict
+^https:\/\/ucmp-static\.sf-express\.com\/proxy\/wxbase\/wxTicket\/wxLiveStreamInfo\?pageNo reject-dict
+^https:\/\/ucmp\.sf-express\.com\/proxy\/esgcempcore\/memberGoods\/pointMallService\/goodsList reject-dict
+^https:\/\/ucmp\.sf-express\.com\/proxy\/operation-platform\/info-flow-adver\/query reject-dict
+^https:\/\/ucmp\.sf-express\.com\/proxy\/esgcempcore\/memberManage\/memberEquity\/queryRecommendEquity reject-dict
+^https:\/\/ucmp\.sf-express\.com\/proxy\/esgcempcore\/memberActLengthy\/fullGiveActivityService\/fullGiveInfo reject-dict
 
 [Script]
 # 12306去广告
@@ -39,4 +46,4 @@ http-response https:\/\/pan\.baidu\.com\/rest\/\d\.\d\/membership\/user requires
 
 
 [MITM]
-hostname = linear-abematv.akamaized.net, upos-hz-mirrorakam.akamaized.net, shopmember.m.jd.com, pan.baidu.com, ad.12306.cn, aisubtitle.hdslb.com, i0.hdslb.com, vas.wps.cn, account.wps.cn, *.docer.wps.cn, vipapi.wps.cn, ap*.intsig.net, appwk.baidu.com, mb3admin.com, *.caiyunapp.*,*cyapi*
+hostname = linear-abematv.akamaized.net, upos-hz-mirrorakam.akamaized.net, shopmember.m.jd.com, pan.baidu.com, ad.12306.cn, aisubtitle.hdslb.com, i0.hdslb.com, vas.wps.cn, account.wps.cn, *.docer.wps.cn, vipapi.wps.cn, ap*.intsig.net, appwk.baidu.com, mb3admin.com, *.caiyunapp.*,*cyapi*, ucmp.sf-express.com, mcs-mimp-web.sf-express.com
