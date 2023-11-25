@@ -1,0 +1,15 @@
+#!name=泡芙VIP
+#!desc=泡芙VIP破解
+#!homepage=https://pfu99.com/
+#!author=𝒀𝒖𝒉𝒆𝒏𝒈
+
+[Rule]
+DOMAIN-KEYWORD, yuheng, DIRECT
+IP-CIDR, 172.233.81.206/24, DIRECT
+
+[Script]
+http-response ^http[s]?:\/\/.*(m6aw0|3ju7q|gar48|68bhf|z0pf9|cloudfront).+\/api\/app\/(recommend\/vid\/(list|ad)|mine\/info|ping\/domain\/h5|vid\/(section|info|list|user\/count)|recreation\/list) script-path=https://raw.githubusercontent.com/Yuheng0101/X/main/Scripts/PFDSP/pfdsp.js, requires-body=true, timeout=10, tag=泡芙VIP
+
+
+[mitm]
+hostname = *m6aw*,*3ju7q*,*gar48*,*68bhf*,*z0pf9*,*cloudfront*
