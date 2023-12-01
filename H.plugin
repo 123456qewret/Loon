@@ -1,0 +1,24 @@
+#!name=色色
+#!desc=色色crack
+#!homepage=https://yuheng0101.github.io
+#!author=𝒀𝒖𝒉𝒆𝒏𝒈
+#!icon=https://avatars.githubusercontent.com/u/50571734?v=4
+
+[Rule]
+# paofu
+DOMAIN-KEYWORD, yuheng, DIRECT
+IP-CIDR, 172.233.81.206/24, DIRECT
+
+[URL Rewrite]
+# 快猫去广告
+^https?:\/\/(kmppi.zhihuibafang.xyz)\/common\/get(Ad|Banner)List reject-200
+
+[Script]
+http-response ^http[s]?:\/\/.*(m6aw0|3ju7q|gar48|68bhf|z0pf9|cloudfront).+\/api\/app\/(recommend\/vid\/(list|ad)|mine\/info|ping\/domain\/h5|vid\/(section|info|list|user\/count)|recreation\/list) script-path=https://raw.githubusercontent.com/Yuheng0101/X/main/Scripts/PFDSP/pfdsp.js, requires-body=true, timeout=10, tag=泡芙VIP
+http-request ^https?:\/\/(kmppi.zhihuibafang.xyz)\/video\/(getUrl|getInfo) script-path=https://raw.githubusercontent.com/Yuheng0101/X/main/Scripts/KM/auto-login.js, requires-body=true, timeout=10, tag=快猫免登录
+http-response ^https?:\/\/(kmppi.zhihuibafang.xyz)\/(video\/getInfo|common\/getNewAnnou|user\/getDetail) script-path=https://raw.githubusercontent.com/Yuheng0101/X/main/Scripts/KM/crack.js, requires-body=true, timeout=10, tag=快猫解锁视频
+
+
+
+[mitm]
+hostname = *m6aw*,*3ju7q*,*gar48*,*68bhf*,*z0pf9*,*cloudfront*, kmppi.zhihuibafang.xyz
