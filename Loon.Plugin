@@ -2,7 +2,7 @@
 #!desc=自用插件收集
 #!author=123456qewret
 #!homepage=https://github.com/123456qewret/Loon
-#!icon=https://gitlab.com/lodepuly/vpn_tool/-/raw/main/Resource/Icon/80px/GitHub.png
+#!icon=https://gitlab.com/lodepuly/vpn_tool/-/raw/master/Resource/Icon/80px/GitHub.png
 
 [URL Rewrite]
 # Abema强制1080
