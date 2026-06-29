@@ -1,0 +1,19 @@
+#!name=Plugins
+#!desc=自用插件收集，无时效性保证
+#!author=123456qewret
+#!homepage=https://github.com/123456qewret/Loon
+#!icon=https://gitlab.com/lodepuly/iconlibrary/-/raw/main/App_icon/120px/GitHub.png
+
+[URL Rewrite]
+# Abema强制1080
+(linear\-abematv\.akamaized\.net/.*)/\d\d\d/(.*) header $1/1080/$2
+# 京东注销会员
+^https:\/\/shopmember\.m\.jd\.com\/shopcard\/\?(venderId=[0-9]+).* https:\/\/shopmember\.m\.jd\.com\/member\/memberCloseAccount\?$1 302
+
+[Script]
+# EMBY VIP @Tartarus2014
+http-response ^https?:\/\/mb3admin.com\/admin\/service\/registration\/validateDevice requires-body=1,max-size=0, script-path=https://raw.githubusercontent.com/Tartarus2014/Script/master/Emby.js, tag=EMBY VIP
+
+
+[MITM]
+hostname = linear-abematv.akamaized.net, shopmember.m.jd.com, mb3admin.com
