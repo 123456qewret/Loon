@@ -1,11 +1,12 @@
 /*
 华住会 APP新签到页获取Token&签到
 适用于 Loon 3.5.1 (983) 及以上版本（Script V2）
+原作者@wf021325
 ====================================
 [Script]
-request if ${url} ~= /^https?:\/\/(?:hweb-personalcenter\.huazhu\.com\/login\/autoLogin|appgw\.huazhu\.com\/game\/sign_header)(?:\?.*)?$/i then script("https://raw.githubusercontent.com/123456qewret/Loon/main/tasks/hzh.js") with tag="华住会Token", timeout=20
+request if ${url} ~= /^https?:\/\/(?:hweb-personalcenter\.huazhu\.com\/login\/autoLogin|appgw\.huazhu\.com\/game\/sign_header)(?:\?.*)?$/i then script("https://raw.githubusercontent.com/123456qewret/Loon/main/Tasks/hzh.js") with tag="华住会Token", timeout=20
 
-cron "1 0 * * *" then script("https://raw.githubusercontent.com/123456qewret/Loon/main/tasks/hzh.js") with tag="华住会签到", timeout=300
+cron "1 0 * * *" then script("https://raw.githubusercontent.com/123456qewret/Loon/main/Tasks/hzh.js") with tag="华住会签到", timeout=300
 
 [Mitm]
 hostname = hweb-personalcenter.huazhu.com, appgw.huazhu.com
