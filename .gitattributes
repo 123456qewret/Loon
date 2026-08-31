@@ -1,0 +1,9 @@
+# 统一行尾为 LF，避免 Windows / iOS / GitHub 之间出现整文件 diff
+* text=auto eol=lf
+
+# 二进制文件不做行尾与编码转换
+*.zip  binary
+*.png  binary
+*.jpg  binary
+*.mmdb binary
+*.p12  binary

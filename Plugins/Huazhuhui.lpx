@@ -1,0 +1,16 @@
+#!name=华住会
+#!desc=华住会获取 Token + 每日自动签到
+#!author=123456qewret / wf021325
+#!homepage=https://github.com/123456qewret/Loon
+#!icon=https://raw.githubusercontent.com/Sliverkiss/QuantumultX/main/icon/Hzh.png
+
+[Argument]
+getToken = switch,false,tag=获取 Token,desc=需要获取或更新签到 Token 时开启，获取成功后建议关闭
+
+[Script]
+request if ${url} ~= /^https?:\/\/(?:hweb-personalcenter\.huazhu\.com\/login\/autoLogin|appgw\.huazhu\.com\/game\/sign_header)(?:\?.*)?$/i then script("https://raw.githubusercontent.com/123456qewret/Loon/main/Tasks/hzh.js") with enable=${getToken}, tag="华住会Token", timeout=20
+
+cron "1 0 * * *" then script("https://raw.githubusercontent.com/123456qewret/Loon/main/Tasks/hzh.js") with tag="华住会签到", timeout=300
+
+[MITM]
+hostname = hweb-personalcenter.huazhu.com, appgw.huazhu.com

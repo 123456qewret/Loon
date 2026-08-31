@@ -1,0 +1,16 @@
+#!name=NodeSeek
+#!desc=NodeSeek 获取 Token + 每日自动签到
+#!author=Sliverkiss
+#!homepage=https://gist.github.com/Sliverkiss/2b5acc2c4960dd06618c6912302c2c7f
+#!icon=https://raw.githubusercontent.com/madrays/MoviePilot-Plugins/main/icons/nodeseeksign.png
+
+[Argument]
+getToken = switch,false,tag=获取 Token,desc=需要获取或更新 Token 时开启，获取完成后建议关闭
+
+[Script]
+response if ${url} ~= /^https:\/\/www\.nodeseek\.com\/api\/account\/getInfo\/.+\?readme=1/i then script("https://gist.githubusercontent.com/Sliverkiss/2b5acc2c4960dd06618c6912302c2c7f/raw/nodeseek.js") with enable=${getToken}, tag="NodeSeek获取Token", timeout=60, requires_body=true
+
+cron "3 0 * * *" then script("https://gist.githubusercontent.com/Sliverkiss/2b5acc2c4960dd06618c6912302c2c7f/raw/nodeseek.js") with tag="NodeSeek每日签到", timeout=60
+
+[MITM]
+hostname = www.nodeseek.com
