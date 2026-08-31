@@ -21,11 +21,11 @@ interface-mode = performance
 geoip-url = https://gitlab.com/Masaiki/GeoIP2-CN/-/raw/release/Country.mmdb
 skip-proxy = 192.168.0.0/16,10.0.0.0/8,172.16.0.0/12,localDOMAIN,*.local,captive.apple.com,e.crashlynatics.com,api.miwifi.com
 bypass-tun = 10.0.0.0/8,100.64.0.0/10,127.0.0.0/8,169.254.0.0/16,172.16.0.0/12,192.0.0.0/24,192.0.2.0/24,192.88.99.0/24,192.168.0.0/16,198.51.100.0/24,203.0.113.0/24,224.0.0.0/4,239.255.255.250/32,255.255.255.255/32
-real-ip = 123456DESKTOP.*
+real-ip = "geosite:private"
 ssid-trigger = "default":rule, "cellular":rule
 
 [Proxy]
-🇯🇵 日本 GPT = shadowsocks
+🇯🇵 Zouter = Shadowsocks,example.com,443,aes-256-gcm,"password",fast-open=false,udp=true,block-quic=false
 
 [Remote Proxy]
 
@@ -43,7 +43,7 @@ ssid-trigger = "default":rule, "cellular":rule
 
 
 [Proxy Group]
-Proxy = select,日本节点,香港,其他地区,低价购物,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/Static.png
+Proxy = select,AI zouter,日本,香港,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/Static.png
 日本 = select,日本节点,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
 香港 = select,香港节点,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
 台湾 = select,台湾节点,url = http://cp.cloudflare.com/generate_204,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Taiwan.png
@@ -61,7 +61,7 @@ TikTok = select,日本,DIRECT,url = http://cp.cloudflare.com/generate_204,img-ur
 
 
 [Proxy Chain]
-ChatGPT日本 = Proxy,🇯🇵 日本 GPT, udp=true
+AI zouter = 日本,🇯🇵 Zouter, udp=true
 
 [Rule]
 # Type:DOMAIN-SUFFIX, DOMAIN, DOMAIN-KEYWORD, USER-AGENT, URL-REGEX, IP-CIDR
@@ -72,11 +72,8 @@ IP-CIDR,10.0.0.0/8,DIRECT
 IP-CIDR,172.16.0.0/12,DIRECT
 IP-CIDR,127.0.0.0/8,DIRECT
 AND,((PROTOCOL,QUIC),(DOMAIN-KEYWORD,google)),REJECT
-DOMAIN,sub.nexconvert.com,DIRECT
 DOMAIN-SUFFIX,jpush.cn,DIRECT
-DOMAIN-KEYWORD,cwt,DIRECT
 DOMAIN-SUFFIX,asnapieu.com,DIRECT
-DOMAIN-KEYWORD,hrs,DIRECT
 #DOMAIN-KEYWORD,github,美国
 DOMAIN-KEYWORD,hanime,香港
 DOMAIN-KEYWORD,comic,香港
@@ -106,16 +103,16 @@ https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master
 https://adrules.top/adrules.list, policy=REJECT, tag=AdRules, enabled=true
 https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/Filters/AWAvenue-Ads-Rule-Surge-RULE-SET.list, policy=REJECT, tag=AWAvenue-Ads, enabled=true
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Apple/Apple_All_No_Resolve.list, policy=Apple, tag=Apple, parser-enable=true, enabled=true
-https://kelee.one/Tool/Loon/Lsr/AI.lsr, policy=ChatGPT日本, tag=AI, enabled=true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/AbemaTV/AbemaTV.list, policy=日本, tag=Abema, enabled=true
+https://kelee.one/Tool/Loon/Lsr/AI.lsr, policy=AI zouter, tag=AI, enabled=true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/AbemaTV/AbemaTV.list, policy=AI zouter, tag=Abema, enabled=true
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Bing/Bing.list, policy=美国, tag=Bing, enabled=true
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/BiliBili/BiliBili.list, policy=Bilibili, tag=Bilibili, enabled=true
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Bahamut/Bahamut.list, policy=台湾, tag=Bahamut, enabled=true
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Disney/Disney.list, policy=Disney+, tag=Disney+, enabled=true
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Netflix/Netflix.list, policy=Netflix, tag=Netflix, enabled=true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/TikTok/TikTok.list, policy=日本, tag=Tiktok, enabled=true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Instagram/Instagram.list, policy=日本, tag=Instagram, enabled=true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Twitter/Twitter.list, policy=日本, tag=Twitter, enabled=true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/TikTok/TikTok.list, policy=AI zouter, tag=Tiktok, enabled=true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Instagram/Instagram.list, policy=AI zouter, tag=Instagram, enabled=true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Loon/Twitter/Twitter.list, policy=AI zouter, tag=Twitter, enabled=true
 https://github.com/VirgilClyne/GetSomeFries/blob/main/ruleset/ASN.Telegram.list?raw=true, policy=Telegram, tag=Telegram, enabled=true
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Surge/Global/Global_All_No_Resolve.list, policy=Proxy, tag=Global, enabled=true
 https://raw.githubusercontent.com/VirgilClyne/GetSomeFries/main/ruleset/ASN.China.list, policy=DIRECT, tag=ASN.CN, enabled=true
@@ -128,14 +125,13 @@ dns.alidns.com = 223.5.5.5
 iosapps.itunes.apple.com = iosapps.itunes.apple.com.download.ks-cdn.com
 
 
-
 [Rewrite]
 #^https?:\/\/(raw|gist)\.githubusercontent\.com\/ header-replace accept-Language en-us user-agent GitHub/1.171.1\x20(iPhone;\x20iOS\x2018.4.1;\x20Scale/3.00)
 #^https:\/\/github\.com\/ header-replace Accept-Language en-us
 
 
 [Script]
-cron "30 10 * * *" script-path=https://github.com/sub-store-org/Sub-Store/releases/latest/download/cron-sync-artifacts.min.js, timeout=60, enabled=false, tag=SubStore同步, img-url=https://raw.githubusercontent.com/58xinian/icon/master/Sub-Store1.png
+cron "30 10 * * *" then script("https://github.com/sub-store-org/Sub-Store/releases/latest/download/cron-sync-artifacts.min.js") with enable=false, tag="SubStore同步", img_url="https://raw.githubusercontent.com/58xinian/icon/master/Sub-Store1.png", timeout=60
 
 
 [Remote Script]
@@ -143,12 +139,15 @@ cron "30 10 * * *" script-path=https://github.com/sub-store-org/Sub-Store/releas
 
 
 [Plugin]
+https://raw.githubusercontent.com/MaYIHEI/paperclip/refs/heads/main/loon/ipquality-web-test/ipquality-web-test.lpx, enabled=true
+https://raw.githubusercontent.com/mc2u/Loon/refs/heads/main/Plugins/loon_resource_parser.lpx, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Block_HTTPDNS.lpx, pin=true, enabled=true
 https://kelee.one/Tool/Loon/Lpx/BlockAdvertisers.lpx, pin=true, enabled=true
 https://raw.githubusercontent.com/VirgilClyne/GetSomeFries/main/plugin/General.plugin, pin=true, enabled=true
 #https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rewrite/Loon/SafeRedirect/SafeRedirect.plugin, enabled=true
 #https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rewrite/Loon/AdvertisingLite/AdvertisingLite.plugin, tag=Advertising, enabled=true
-https://github.com/123456qewret/Loon/raw/main/Loon.Plugin, tag=Plugins, enabled=true
+https://github.com/123456qewret/Loon/raw/main/Loon.lpx, tag=Plugins, enabled=true
+https://raw.githubusercontent.com/mekos2772/ios-location-spoofer/refs/heads/main/ios-location-spoofer.lnplugin, enabled=true
 https://raw.githubusercontent.com/VirgilClyne/GetSomeFries/main/plugin/DNS.plugin, pin=true, enabled=true
 https://raw.githubusercontent.com/Tartarus2014/Loon-Script/refs/heads/master/Plugin/FKTG.lpx, enabled=true
 https://raw.githubusercontent.com/Tartarus2014/Loon-Script/refs/heads/master/Plugin/skip-proxy.lpx, tag=Skip Proxy And Real-IP Lists, enabled=true
@@ -156,20 +155,21 @@ https://ddgksf2013.top/module/ScriptHub.Loon.plugin, enabled=true
 https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/modules/script-hub.loon.plugin, policy=Proxy, tag=Script Hub: 重写 & 规则集转换, enabled=true
 http://script.hub/file/_start_/http://local.text/_end_/local.plugin?n=X%E7%BD%91%E9%A1%B5%E7%89%88%E4%BC%9A%E5%91%98%E6%A0%87%E7%AD%BE%E9%A1%B5&type=loon-plugin&target=loon-plugin&del=true&jqEnabled=true&localtext=%5BScript%5D%0Ahttp-response%20%5Ehttps%3F%3A%5C%2F%5C%2Fx%5C.com%5C%2Fi%5C%2Fapi%5C%2Fgraphql%5C%2F%5B%5E%5C%2F%5D%2B%5C%2FPinnedTimelines%5C%3F%20script-path%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Ffmz200%2Fwool_scripts%2Fmain%2FScripts%2FX%2FXWebEnhance.js%2C%20requires-body%3Dtrue%2C%20timeout%3D20%2C%20tag%3DX%E7%BD%91%E9%A1%B5%E7%89%88%E6%A0%87%E7%AD%BE%E9%A1%B5%2C%20img-url%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Ffmz200%2Fwool_scripts%2Fmain%2Ficons%2Fapps%2FX.png, enabled=true
 http://script.hub/file/_start_/http://local.text/_end_/local.plugin?n=PingMe%E8%87%AA%E5%8A%A8%E4%BB%BB%E5%8A%A1&type=loon-plugin&target=loon-plugin&del=true&jqEnabled=true&localtext=%5BScript%5D%0Ahttp-request%20%5Ehttps%3A%5C%2F%5C%2Fapi%5C.pingmeapp%5C.net%5C%2Fapp%5C%2FqueryBalanceAndBonus%20script-path%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Ffmz200%2Fwool_scripts%2Fmain%2FScripts%2Fcookie%2Fget_cookie.js%2C%20timeout%3D60%2C%20tag%3DPingMe%E8%8E%B7%E5%8F%96%E7%AD%BE%E5%88%B0%E5%8F%82%E6%95%B0%0Acron%20%2230%2015%20*%20*%20*%22%20script-path%20%3D%20https%3A%2F%2Fraw.githubusercontent.com%2Ffmz200%2Fwool_scripts%2Fmain%2FScripts%2FPingMe%2FPingMeSignin.js%2C%20tag%20%3D%20PingMe%E7%AD%BE%E5%88%B0%2C%20timeout%20%3D%20300%2C%20enable%20%3D%20true%0A%0A%5BMITM%5D%0Ahostname%20%3D%20api.pingmeapp.net, enabled=true
-http://script.hub/file/_start_/https://raw.githubusercontent.com/wf021325/qx/master/task/hzh.js/_end_/hzh.plugin?n=%E5%8D%8E%E4%BD%8F%E4%BC%9A%E7%AD%BE%E5%88%B0%2B%E5%8D%8E%E4%BD%8F%E4%BC%9A%E8%87%AA%E5%8A%A8%E7%AD%BE%E5%88%B0&type=qx-rewrite&target=loon-plugin, enabled=true
+http://script.hub/file/_start_/http://local.text/_end_/local.plugin?n=%E5%85%A8%E8%83%BD%E6%89%AB%E6%8F%8F%E7%8E%8Bvip&type=loon-plugin&target=loon-plugin&del=true&jqEnabled=true&localtext=%5BScript%5D%0Ahttp-response%20https%3A%5C%2F%5C%2F(api%7Capi-cs)%5C.intsig%5C.net%5C%2Fpurchase%5C%2Fcs%5C%2Fquery_property%5C%3F%20requires-body%3D1%2Cmax-size%3D0%2Cscript-path%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2FNobyDa%2FScript%2Fmaster%2FSurge%2FJS%2FCamScanner.js%0A%0A%5BMITM%5D%0Ahostname%20%3D%20ap*.intsig.net, enabled=true
 http://script.hub/file/_start_/https://raw.githubusercontent.com/fmz200/wool_scripts/main/QuantumultX/scripts/Flightradar24.js/_end_/local.plugin?jsc2=.&n=FlightRadar24%2BFR24VIP&type=qx-rewrite&target=loon-plugin&del=true&jqEnabled=true, enabled=true
-http://script.hub/file/_start_/http://local.text/_end_/local.plugin?n=%E9%98%BF%E9%87%8C%E4%BA%91%E7%9B%98%E7%AD%BE%E5%88%B0%2B%E6%89%93%E5%BC%80app%E8%8E%B7%E5%8F%96ck&type=qx-rewrite&target=loon-plugin&del=true&localtext=15%200%20*%20*%20*%20https%3A%2F%2Fgist.githubusercontent.com%2FSliverkiss%2F33800a98dcd029ba09f8b6fc6f0f5162%2Fraw%2Faliyun.js%2C%20tag%3D%E9%98%BF%E9%87%8C%E4%BA%91%E7%AD%BE%E5%88%B0%2C%20img-url%3Dhttps%3A%2F%2Fraw.githubusercontent.com%2Ffmz200%2Fwool_scripts%2Fmain%2Ficons%2Fapps%2FAliYunDrive.png%2C%20enabled%3Dtrue%0A%5Ehttps%3A%5C%2F%5C%2F(auth%7Caliyundrive)%5C.alipan%5C.com%5C%2Fv2%5C%2Faccount%5C%2Ftoken%20url%20script-request-body%20https%3A%2F%2Fgist.githubusercontent.com%2FSliverkiss%2F33800a98dcd029ba09f8b6fc6f0f5162%2Fraw%2Faliyun.js%0Ahostname%20%3D%20auth.alipan.com%2Cauth.aliyundrive.com%0A, tag=阿里云盘签到, enabled=false
 http://script.hub/file/_start_/https://ddgksf2013.top/scripts/buyitunes.vip.js/_end_/buyitunes.vip.sgmodule?type=qx-rewrite&n=BuyiTunes%E4%BC%9A%E5%91%98%E8%A7%A3%E9%94%81%40ddgksf2013+iTunes%E8%A7%A3%E9%94%81%E5%90%88%E9%9B%86&headers=User-Agent:surge&del=true&jqEnabled=true&target=loon-plugin&category=ddgksf2013, enabled=false
 https://kelee.one/Tool/Loon/Lpx/Bilibili_remove_ads.lpx, policy=REJECT, enabled=true
 https://github.com/BiliUniverse/Redirect/releases/latest/download/BiliBili.Redirect.plugin, enabled=true
-https://github.com/BiliUniverse/Enhanced/releases/latest/download/BiliBili.Enhanced.plugin, tag=📺 BiliBili: ⚙ Enhanced, enabled=true
-https://kelee.one/Tool/Loon/Lpx/HantingHotels_remove_ads.lpx, enabled=true
-https://github.com/BiliUniverse/ADBlock/releases/latest/download/BiliBili.ADBlock.plugin, enabled=false
+https://github.com/BiliUniverse/ADBlock/releases/latest/download/BiliBili.ADBlock.plugin, enabled=true
+https://github.com/BiliUniverse/Enhanced/releases/latest/download/BiliBili.Enhanced.plugin, tag=📺 BiliBili: ⚙ Enhanced, enabled=false
 https://github.com/BiliUniverse/Global/releases/latest/download/BiliBili.Global.plugin, enabled=false
+https://raw.githubusercontent.com/123456qewret/Loon/refs/heads/main/Plugins/Nodeseek.lpx, enabled=true
+https://raw.githubusercontent.com/123456qewret/Loon/refs/heads/main/Plugins/Huazhuhui.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/HantingHotels_remove_ads.lpx, enabled=true
 https://github.com/NSRingo/GeoServices/releases/latest/download/iRingo.Maps.plugin, enabled=true
-https://github.com/NSRingo/WeatherKit/releases/latest/download/iRingo.WeatherKit.plugin, enabled=true
+https://github.com/NSRingo/WeatherKit/releases/latest/download/iRingo.WeatherKit.lpx, enabled=true
 https://github.com/NSRingo/LocationService/releases/download/v1.0.1/iRingo.LocationService.plugin, enabled=true
-https://github.com/DualSubs/Spotify/releases/latest/download/DualSubs.Spotify.plugin, tag=🍿️ DualSubs: 🎵 Spotify, enabled=false
+https://github.com/DualSubs/Spotify/releases/latest/download/DualSubs.Spotify.plugin, tag=🍿️ DualSubs: 🎵 Spotify, enabled=true
 https://raw.githubusercontent.com/NobyDa/Script/master/Loon/Loon_Google_CAPTCHA.plugin, enabled=true
 https://kelee.one/Tool/Loon/Lpx/VVebo_repair.lpx, tag=VVebo时间线修复, enabled=true
 https://gitlab.com/isous/loonresource/-/raw/main/Plugin/Slidebox_crack.plugin, tag=Slidebox解锁, enabled=true
@@ -196,8 +196,10 @@ https://kelee.one/Tool/Loon/Lpx/BaiduSearchWebpage_remove_ads.lpx, enabled=true
 https://kelee.one/Tool/Loon/Lpx/LoonGallery.lpx, policy=Proxy, tag=插件仓库, enabled=true
 https://raw.githubusercontent.com/chavyleung/scripts/master/box/rewrite/boxjs.rewrite.loon.plugin, policy=Proxy, enabled=true
 http://script.hub/file/_start_/https://raw.githubusercontent.com/Peng-YM/Sub-Store/master/config/Loon.plugin/_end_/Loon.plugin?type=qx-rewrite&target=loon-plugin&x=cron&del=true&jqEnabled=true, policy=Proxy, tag=Sub-Store, enabled=true
-http://script.hub/file/_start_/https://raw.githubusercontent.com/xream/scripts/main/surge/modules/network-info/net-lsp-x.plugin/_end_/net-lsp-x.plugin?type=loon-plugin&target=loon-plugin&x=%E5%8F%98%E5%8C%96&del=true, tag=网络信息 𝕏, enabled=true
-https://kelee.one/Tool/Loon/Lpx/Node_detection_tool.lpx, tag=节点检测工具, enabled=true
+https://raw.githubusercontent.com/Roddy-D/Loon_plugins/refs/heads/main/plugin/nodetcpcheck.lpx, policy=日本, enabled=false
+https://raw.githubusercontent.com/Roddy-D/Loon_plugins/refs/heads/main/plugin/iptest.lpx, enabled=false
+http://script.hub/file/_start_/https://raw.githubusercontent.com/xream/scripts/main/surge/modules/network-info/net-lsp-x.plugin/_end_/net-lsp-x.plugin?type=loon-plugin&target=loon-plugin&x=%E5%8F%98%E5%8C%96&del=true, tag=网络信息 𝕏, enabled=false
+https://kelee.one/Tool/Loon/Lpx/Node_detection_tool.lpx, tag=节点检测工具, enabled=false
 
 [Mitm]
 ca-p12 = 

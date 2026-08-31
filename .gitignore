@@ -1,0 +1,5 @@
+# Loon 导出的原始配置备份（含证书与节点信息）
+*_default.lcf
+*.p12
+*.mobileconfig
+*.zip
