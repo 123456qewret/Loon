@@ -4,8 +4,11 @@
 #!homepage=https://gist.github.com/Sliverkiss/2b5acc2c4960dd06618c6912302c2c7f
 #!icon=https://raw.githubusercontent.com/madrays/MoviePilot-Plugins/main/icons/nodeseeksign.png
 
+[Argument]
+getToken = switch,false,tag=获取 Token,desc=需要获取或更新 Token 时开启，获取完成后建议关闭
+
 [Script]
-http-response ^https:\/\/www\.nodeseek\.com\/api\/account\/getInfo\/.+\?readme=1 script-path=https://gist.githubusercontent.com/Sliverkiss/2b5acc2c4960dd06618c6912302c2c7f/raw/nodeseek.js, requires-body=true, timeout=60, tag=NodeSeek获取Token
+http-response ^https:\/\/www\.nodeseek\.com\/api\/account\/getInfo\/.+\?readme=1 script-path=https://gist.githubusercontent.com/Sliverkiss/2b5acc2c4960dd06618c6912302c2c7f/raw/nodeseek.js, requires-body=true, timeout=60, tag=NodeSeek获取Token, enable={getToken}
 
 cron "3 0 * * *" script-path=https://gist.githubusercontent.com/Sliverkiss/2b5acc2c4960dd06618c6912302c2c7f/raw/nodeseek.js, timeout=60, tag=NodeSeek每日签到
 
