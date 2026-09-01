@@ -1,0 +1,16 @@
+#!name=PingMe签到
+#!desc=PingMe 获取签到参数 + 每日自动签到
+#!author=fmz200
+#!homepage=https://github.com/fmz200/wool_scripts
+#!icon=https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/2f/99/68/2f9968ff-ed60-9c5c-0d85-4a2cd405380f/AppIcon-0-0-1x_U007emarketing-0-8-0-0-sRGB-85-220.png/512x512bb.jpg
+
+[Argument]
+getCookie = switch,false,tag=获取签到参数,desc=需要获取或更新签到参数时开启，获取成功后建议关闭
+
+[Script]
+request if ${url} ~= /^https:\/\/api\.pingmeapp\.net\/app\/queryBalanceAndBonus/i then script("https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/cookie/get_cookie.js") with enable=${getCookie}, tag="PingMe获取签到参数", timeout=60
+
+cron "30 3,15 * * *" then script("https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/PingMe/PingMeSignin.js") with tag="PingMe签到", timeout=300
+
+[MITM]
+hostname = api.pingmeapp.net
