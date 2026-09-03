@@ -7,6 +7,9 @@
 [Argument]
 getCookie = switch,false,tag=获取签到参数,desc=需要获取或更新签到参数时开启，获取成功后建议关闭
 
+[Rule]
+DOMAIN, api.pingmeapp.net, Proxy
+
 [Script]
 request if ${url} ~= /^https:\/\/api\.pingmeapp\.net\/app\/queryBalanceAndBonus/i then script("https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/cookie/get_cookie.js") with enable=${getCookie}, tag="PingMe获取签到参数", timeout=60
 
